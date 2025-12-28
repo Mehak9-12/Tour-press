@@ -1,11 +1,7 @@
 import express from 'express';
-import {
-  createUser,
-  deleteUser,
-  getAllUsers,
-  getUser,
-  updateUser,
-} from './controllers/usercontroller.js';
+import userController from '../controllers/usercontroller.js';
+const { createUser, deleteUser, getAllUsers, getUser, updateUser } =
+  userController();
 const userRouter = express.Router();
 // Read json data
 

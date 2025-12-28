@@ -1,5 +1,5 @@
 import express from 'express';
-import tourController from './controllers/tourcontroller.js';
+import tourController from '../controllers/tourcontroller.js';
 
 const tourRouter = express.Router();
 
@@ -8,7 +8,7 @@ tourRouter
   .get(tourController().getAllTours)
   .post(tourController().createTour);
 
-tourRouter.param('id', tourController().checkIdExists);
+// tourRouter.param('id', tourController().checkIdExists);
 
 tourRouter
   .route('/:id')
