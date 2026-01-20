@@ -129,6 +129,8 @@
     "imageCover": "andaman.jpg",
     "startLocation": { "city": "Port Blair", "country": "India" }
   },
-  { "id": 13, "name": "Random package", "duration": 8 }
+ { "id": 13, "name": "Random package", "duration": 8 },
+	{ "id": 13, "name": "Random package", "duration": 8 },
+	{ "id": 13, "name": "Random package", "duration": 8 }
 ]
  

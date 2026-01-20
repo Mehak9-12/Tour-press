@@ -1,4 +1,5 @@
 import User from '../models/userModel.js';
+import catchAsync from '../utils/catchAsync.js';
 
 export default function userController() {
   return {
@@ -24,9 +25,14 @@ export default function userController() {
     // Create a User
     createUser: async (req, res) => {
       try {
-        const { name, email, password } = req.body;
+        const { name, email, password, passwordConfirm } = req.body;
 
-        const newUser = await User.create({ name, email, password });
+        const newUser = await User.create({
+          name,
+          email,
+          password,
+          passwordConfirm,
+        });
 
         res.status(201).json({
           status: 'success',
@@ -68,6 +74,16 @@ export default function userController() {
         });
       }
     },
+
+    getMyProfile: catchAsync(async (req, res, next) => {
+      const user = req.user;
+      res.status(200).json({
+        status: 'success',
+        data: {
+          user,
+        },
+      });
+    }),
     // Update a User
     updateUser: async (req, res) => {
       try {
@@ -89,7 +105,7 @@ export default function userController() {
           },
           {
             new: true,
-          }
+          },
         );
 
         res.status(200).json({
